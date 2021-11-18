@@ -1,0 +1,16 @@
+
+.jumbotron-image {
+  background-image: url(https://cdn.ila-france.com/wp-content/uploads/2015/02/our-students-1750x660-1.jpg);
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  color: black;
+  height: 70vh;
+}
+h2{
+  color: black;
+}
+
+p{
+  color: black;
+}
