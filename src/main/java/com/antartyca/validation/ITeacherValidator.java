@@ -1,14 +1,14 @@
 package com.antartyca.validation;
 
-import com.antartyca.domain.Person;
-import com.antartyca.domain.Teacher;
-import com.antartyca.domain.TeacherPresenter;
+import com.antartyca.domain.TeacherRegisterDto;
 
 public interface ITeacherValidator {
+	
+	public boolean validateTeacherRegister(TeacherRegisterDto teacher);
 
-	boolean validateTeacher(Teacher teacher);
-
-	boolean validateTeacher(TeacherPresenter teacher);
+//	boolean validateTeacher(Teacher teacher);
+//
+//	boolean validateTeacher(TeacherPresenter teacher);
 	
 
 

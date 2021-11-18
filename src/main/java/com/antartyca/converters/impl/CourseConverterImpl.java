@@ -3,19 +3,17 @@ package com.antartyca.converters.impl;
 import java.util.ArrayList;
 import java.util.List;
 
-import java.util.stream.Collectors;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.antartyca.converters.ICourseConverter;
 import com.antartyca.converters.ITeacherConverter;
-import com.antartyca.domain.CoursePresenter;
-import com.antartyca.domain.Students;
+import com.antartyca.domain.CoursePresenterDto;
+import com.antartyca.domain.StudentsDto;
 import com.antartyca.model.Course;
 import com.antartyca.model.Teacher;
 
-@Service("CourseConverterImpl")
+@Service
 public class CourseConverterImpl implements ICourseConverter {
 
 	@Autowired
@@ -26,8 +24,8 @@ public class CourseConverterImpl implements ICourseConverter {
 
 
 	@Override
-	public CoursePresenter convert(com.antartyca.domain.Course courseModel) {
-		CoursePresenter coursePresenter = new CoursePresenter();
+	public CoursePresenterDto convert(com.antartyca.domain.CourseDto courseModel) {
+		CoursePresenterDto coursePresenter = new CoursePresenterDto();
 		
 		coursePresenter.setDepartament(courseModel.getDepartament());
 		coursePresenter.setStudentsList(courseModel.getStudentsList());
@@ -36,12 +34,12 @@ public class CourseConverterImpl implements ICourseConverter {
 		
 		List<Teacher> teacherListDomain = new ArrayList<>();
 		
-		if(courseModel.getTeacherList() != null && !courseModel.getTeacherList().isEmpty()) {
-			teacherListDomain = courseModel.getTeacherList()
-					.stream().map(teacher -> teacherConverter.convert(teacher))
-					.collect(Collectors.toList());
-
-		}
+//		if(courseModel.getTeacherList() != null && !courseModel.getTeacherList().isEmpty()) {
+//			teacherListDomain = courseModel.getTeacherList()
+//					.stream().map(teacher -> teacherConverter.convert(teacher))
+//					.collect(Collectors.toList());
+//
+//		}
 		
 		coursePresenter.setTeacherList(teacherListDomain);
 		
@@ -53,7 +51,7 @@ public class CourseConverterImpl implements ICourseConverter {
 
 
 	@Override
-	public com.antartyca.domain.Course convert(Course courseDomain) {
+	public com.antartyca.domain.CourseDto convert(Course courseDomain) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -63,7 +61,7 @@ public class CourseConverterImpl implements ICourseConverter {
 
 
 	@Override
-	public Course convert(Students coursesDomain) {
+	public Course convert(StudentsDto coursesDomain) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -73,7 +71,7 @@ public class CourseConverterImpl implements ICourseConverter {
 
 
 	@Override
-	public Object convert(CoursePresenter c) {
+	public Object convert(CoursePresenterDto c) {
 		// TODO Auto-generated method stub
 		return null;
 	}

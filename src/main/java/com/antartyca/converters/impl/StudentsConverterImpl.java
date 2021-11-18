@@ -1,20 +1,17 @@
 package com.antartyca.converters.impl;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.antartyca.converters.ICourseConverter;
 import com.antartyca.converters.IStudentsConverter;
-import com.antartyca.domain.Course;
-import com.antartyca.domain.CoursePresenter;
-import com.antartyca.domain.StudentsPresenter;
+import com.antartyca.domain.StudentRegisterDto;
+import com.antartyca.domain.StudentsPresenterDto;
 import com.antartyca.model.Students;
 
-@Service("studentsConverterImpl")
+@Service
 public class StudentsConverterImpl implements IStudentsConverter {
 
 	@Autowired
@@ -24,15 +21,38 @@ public class StudentsConverterImpl implements IStudentsConverter {
 	private ICourseConverter courseConverter;
 
 	@Override
-	public Students convert(com.antartyca.domain.Students studentsDomain) {
-		// TODO Auto-generated method stub
-		return null;
+	public Students convert(StudentRegisterDto studentsDomain) {
+		
+		
+		Students result = new Students();
+		
+		result.setName(studentsDomain.getNombre());
+		result.setSurname(studentsDomain.getSurname());
+		result.setAge(studentsDomain.getEdad());
+		result.setPassword(studentsDomain.getPass());
+		
+		result.setCreateAt(new Date());
+		
+		return result;
 	}
 
 	@Override
-	public StudentsPresenter convert(Students studentsModel) {
-		// TODO Auto-generated method stub
-		return null;
+	public StudentsPresenterDto convert(Students studentsModel) {
+		
+		StudentsPresenterDto result = new StudentsPresenterDto();
+		result.setName(studentsModel.getName());
+		result.setSurname(studentsModel.getSurname());
+		result.setAge(studentsModel.getAge());
+		
+		result.setFullName(studentsModel.getName() + " " + studentsModel.getSurname());
+		
+		
+		//TODO tranformer de courseDTo to course y al reves
+		//result.setCourseList(null);
+		//TODO tranformer de studentDTo to student y al reves
+		//result.setStudentsList(studentsList);
+		
+		return result;
 	}
 
 	/*

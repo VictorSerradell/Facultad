@@ -3,7 +3,7 @@ package com.antartyca.domain;
 import java.io.Serializable;
 import java.util.Date;
 
-public class Person extends Base implements Serializable{
+public class PersonDto extends BaseDto implements Serializable{
 	
 	/**
 	 * 
@@ -12,7 +12,7 @@ public class Person extends Base implements Serializable{
 
 
 	//Builder
-	public Person() {
+	public PersonDto() {
 		super();
 		
 	}

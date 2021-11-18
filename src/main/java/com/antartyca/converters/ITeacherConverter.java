@@ -1,14 +1,15 @@
 package com.antartyca.converters;
 
-import com.antartyca.domain.Teacher;
-import com.antartyca.domain.TeacherPresenter;
+import com.antartyca.domain.TeacherPresenterDto;
+import com.antartyca.domain.TeacherRegisterDto;
+import com.antartyca.model.Teacher;
 
 public interface ITeacherConverter {
 
-	com.antartyca.model.Teacher convert(Teacher teacherModel);
+	public Teacher convert(TeacherRegisterDto teacherModel);
+//
+//	com.antartyca.model.Teacher convert(com.antartyca.domain.TeacherPresenterDto teacherPresenter);
 
-	com.antartyca.model.Teacher convert(com.antartyca.domain.TeacherPresenter teacherPresenter);
-
-	TeacherPresenter convert(com.antartyca.model.Teacher teacherModel);
+	public TeacherPresenterDto convert(Teacher teacherModel);
 
 }

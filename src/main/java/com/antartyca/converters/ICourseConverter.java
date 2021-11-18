@@ -1,18 +1,18 @@
 package com.antartyca.converters;
 
-import com.antartyca.domain.CoursePresenter;
-import com.antartyca.domain.Students;
+import com.antartyca.domain.CoursePresenterDto;
+import com.antartyca.domain.StudentsDto;
 import com.antartyca.model.Course;
 
 public interface ICourseConverter {
 
-	CoursePresenter convert(com.antartyca.domain.Course courseDomain);
+	CoursePresenterDto convert(com.antartyca.domain.CourseDto courseDomain);
 
-	com.antartyca.domain.Course convert(Course coursesDomain);
+	com.antartyca.domain.CourseDto convert(Course coursesDomain);
 
-	Course convert(Students coursesDomain);
+	Course convert(StudentsDto coursesDomain);
 
-	Object convert(CoursePresenter c);
+	Object convert(CoursePresenterDto c);
 
 	
 

@@ -3,21 +3,16 @@ package com.antartyca.domain;
 import java.io.Serializable;
 import java.util.Date;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+public class BaseDto implements Serializable {
 
-import org.hibernate.annotations.GenericGenerator;
-
-public class Base implements Serializable {
-
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
+	
 	public Long id;
 	public Date creation;
 	public Date update;
 	public boolean active;
+	
+	
 	public Long getId() {
 		return id;
 	}
