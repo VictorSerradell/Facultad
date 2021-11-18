@@ -1,8 +1,9 @@
 package com.antartyca.converters;
 
 import com.antartyca.model.Students;
-import com.antartyca.domain.Course;
-import com.antartyca.domain.StudentsPresenter;
+import com.antartyca.domain.CourseDto;
+import com.antartyca.domain.StudentRegisterDto;
+import com.antartyca.domain.StudentsPresenterDto;
 
 public interface IStudentsConverter {
 
@@ -21,8 +22,8 @@ public interface IStudentsConverter {
 	 */
 
 	
-	com.antartyca.model.Students convert(com.antartyca.domain.Students studentsDomain);
-	StudentsPresenter convert(com.antartyca.model.Students studentsModel);
+	com.antartyca.model.Students convert(StudentRegisterDto studentsDomain);
+	StudentsPresenterDto convert(com.antartyca.model.Students studentsModel);
 
 	
 

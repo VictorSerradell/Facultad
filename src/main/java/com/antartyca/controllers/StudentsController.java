@@ -10,38 +10,37 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.antartyca.domain.Students;
-import com.antartyca.domain.StudentsPresenter;
-import com.antartyca.repositories.IStudentsRepository;
-import com.antartyca.services.impl.StudentsServiceImpl;
-import com.antartyca.validation.StudentsValidatorImpl;
+import com.antartyca.domain.StudentRegisterDto;
+import com.antartyca.domain.StudentsPresenterDto;
+import com.antartyca.services.IStudentsService;
+import com.antartyca.validation.IStudentsValidator;
 
 @RestController
 @RequestMapping(value ="/Students")
 public class StudentsController {
 	
 	@Autowired
-	private StudentsServiceImpl studentService;
+	private IStudentsService studentService;
 	
 	@Autowired
-	private StudentsValidatorImpl studentValidator;
+	private IStudentsValidator studentValidator;
 	
 	@GetMapping(value = "/{id}")
-	public ResponseEntity<?>getStudent(@PathVariable(name = "id") String studentId){
+	public ResponseEntity<?>getStudent(@PathVariable(name = "id") Long studentId){
 		
-		StudentsPresenter studentPresenter = studentService.getStudents(studentId);
+		StudentsPresenterDto studentPresenter = studentService.getStudents(studentId);
 		
-		return new ResponseEntity<>(studentPresenter,HttpStatus.OK);
+		return new ResponseEntity<StudentsPresenterDto>(studentPresenter,HttpStatus.OK);
 	}
 	
 	@PostMapping
-	public ResponseEntity<?>createStudent(@RequestBody Students students){
+	public ResponseEntity<?>createStudent(@RequestBody StudentRegisterDto students){
 		
-		if(!studentValidator.validateStudents(students))
-			return new ResponseEntity<>(HttpStatus.PRECONDITION_FAILED);
+		if(!studentValidator.validateStudentRegister(students))
+			return new ResponseEntity<String>(HttpStatus.PRECONDITION_FAILED);
 		
-		StudentsPresenter studentsPresenter = studentService.createStudents(students);
-		return new ResponseEntity<>(studentsPresenter,HttpStatus.OK);
+		StudentsPresenterDto studentsPresenter = studentService.createStudents(students);
+		return new ResponseEntity<StudentsPresenterDto>(studentsPresenter,HttpStatus.OK);
 	}
 	
 	

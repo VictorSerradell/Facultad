@@ -1,25 +1,21 @@
 package com.antartyca.services;
 
-import java.util.List;
-
-import com.antartyca.domain.Course;
-import com.antartyca.domain.CoursePresenter;
-import com.antartyca.domain.Students;
-import com.antartyca.domain.StudentsPresenter;
+import com.antartyca.domain.StudentRegisterDto;
+import com.antartyca.domain.StudentsPresenterDto;
 
 public interface IStudentsService {
 	
-	StudentsPresenter getStudents(String id);
+	StudentsPresenterDto getStudents(Long id);
 	
-	List<Course> getCourses(String name);
+	//List<Course> getCourses(String name);
 
-	List<Course> getCoursesByName(String name);
+	//List<Course> getCoursesByName(String name);
 
-	StudentsPresenter getGlobalAverageMedia();
+	//StudentsPresenter getGlobalAverageMedia();
 
 
-	StudentsPresenter createStudents(Students studentsDomain);
+	StudentsPresenterDto createStudents(StudentRegisterDto studentsDomain);
 
-	com.antartyca.model.Students getListCourse(String id);
+	//com.antartyca.model.Students getListCourse(Long id);
 
 }

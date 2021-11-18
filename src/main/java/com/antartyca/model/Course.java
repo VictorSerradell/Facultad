@@ -1,11 +1,9 @@
 package com.antartyca.model;
 
-import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -15,14 +13,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.GenericGenerator;
-
-import com.antartyca.model.Students;
-import com.antartyca.model.Teacher;
+import com.antartyca.enums.DepartamentEnum;
 
 
 @Entity
@@ -44,7 +36,7 @@ public class Course extends Base{
 	private String name;
 	
 	@Column
-	private Enum departament;
+	private DepartamentEnum departament;
 	
 	@ManyToMany(mappedBy = "courseList")
 	private List<Teacher> listTeacher;
@@ -71,11 +63,11 @@ public class Course extends Base{
 		this.name = name;
 	}
 
-	public Enum getDepartament() {
+	public DepartamentEnum getDepartament() {
 		return departament;
 	}
 
-	public void setDepartament(Enum departament) {
+	public void setDepartament(DepartamentEnum departament) {
 		this.departament = departament;
 	}
 

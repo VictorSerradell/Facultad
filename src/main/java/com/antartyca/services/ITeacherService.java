@@ -1,27 +1,24 @@
 package com.antartyca.services;
 
-import com.antartyca.domain.Teacher;
-import com.antartyca.domain.TeacherPresenter;
-
-import java.util.Date;
-import java.util.List;
+import com.antartyca.domain.TeacherPresenterDto;
+import com.antartyca.domain.TeacherRegisterDto;
 
 public interface ITeacherService {
 
-	TeacherPresenter getTeacher(String id);
+//	TeacherPresenter getTeacher(String id);
+//
+	TeacherPresenterDto createTeacher(TeacherRegisterDto teacherDomain);
+//
+//	List<TeacherPresenter> getTeacherByName(String name);
+//
+//	List<TeacherPresenter> listTeachers();
 
-	TeacherPresenter createTeacher(Teacher teacherDomain);
+	TeacherPresenterDto activate(Long teacherId, boolean active);
 
-	List<TeacherPresenter> getTeacherByName(String name);
-
-	List<TeacherPresenter> listTeachers();
-
-	TeacherPresenter activate(String personId);
-
-	List<TeacherPresenter> findByFirstnameLike(String secondName);
-
-	List<TeacherPresenter> findByStartDateBetween(Date dateOfBird);
-
-	List<TeacherPresenter> findByFirstSecondNameLike(String secondName);
+//	List<TeacherPresenter> findByFirstnameLike(String secondName);
+//
+//	List<TeacherPresenter> findByStartDateBetween(Date dateOfBird);
+//
+//	List<TeacherPresenter> findByFirstSecondNameLike(String secondName);
 
 }

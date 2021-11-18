@@ -5,15 +5,11 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.antartyca.domain.Students;
-import com.antartyca.domain.StudentsPresenter;
-import com.antartyca.model.Course;
+import com.antartyca.model.Students;
+
 @Repository
-public interface IStudentsRepository extends JpaRepository<com.antartyca.model.Students,Long> {
+public interface IStudentsRepository extends JpaRepository<Students,Long> {
 
-	List<Course>findByName(String name);
+	List<Students>findByName(String name);
 
-	StudentsPresenter save(StudentsPresenter studentsModel);
-
-	com.antartyca.model.Students save(com.antartyca.model.Students studentsModel);
 }
